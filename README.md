@@ -17,7 +17,7 @@ The notebook stays available, while the repo now includes reusable simulation lo
 - JSON output for simulation results
 - Unit tests for simulation and CLI
 
-## Usage
+## Quick Start
 
 ```bash
 python3 cli.py --steps 150
