@@ -1,13 +1,27 @@
-# Pure-pursuit
+# Pure Pursuit Simulation
 
-## Description
-Pure-pursuit - A project by sakib-maho
+This repository is upgraded into a reproducible pure pursuit simulation project.
+The notebook stays available, while the repo now includes reusable simulation logic, CLI, and tests.
+
+## Features
+
+- Simplified pursuer-target simulation model
+- Configurable simulation step count via CLI
+- JSON output for simulation results
+- Unit tests for simulation and CLI
+
+## Usage
+
+```bash
+python3 cli.py --steps 150
+```
+
+## Tests
+
+```bash
+python3 -m unittest discover -s tests -p "test_*.py"
+```
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Author
-sakib-maho
-
-## Copyright
-Copyright (c) 2025 sakib-maho
+MIT License. See `LICENSE`.
