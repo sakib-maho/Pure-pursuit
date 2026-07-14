@@ -1,34 +1,37 @@
-# Pure Pursuit Simulation
+# Pure Pursuit Path Following
 
-<!-- BrandCloud:readme-standard -->
-[![Maintained](https://img.shields.io/badge/Maintained-yes-brightgreen.svg)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Showcase](https://img.shields.io/badge/Portfolio-Showcase-blue.svg)](#)
-
-_Part of the `sakib-maho` project showcase series with consistent documentation and quality standards._
-
-This repository is upgraded into a reproducible pure pursuit simulation project.
-The notebook stays available, while the repo now includes reusable simulation logic, CLI, and tests.
+Python implementation of the **pure pursuit** geometric controller for bicycle-model path following.
 
 ## Features
 
-- Simplified pursuer-target simulation model
-- Configurable simulation step count via CLI
-- JSON output for simulation results
-- Unit tests for simulation and CLI
+- Lookahead target selection on a waypoint path
+- Steering angle from pure pursuit curvature law
+- Bicycle-model simulation loop
+- CLI demos (`s` curve / circle) with optional CSV trajectory export
+- Unit tests for geometry, steering sign, and goal reaching
 
-## Quick Start
-
-```bash
-python3 cli.py --steps 150
-```
-
-## Tests
+## Quick start
 
 ```bash
-python3 -m unittest discover -s tests -p "test_*.py"
+python3 -m pip install -e .
+python3 cli.py --path s --csv trajectory.csv
+python3 -m pytest -q
 ```
+
+If the package is not installed:
+
+```bash
+PYTHONPATH=. python3 cli.py --path circle
+PYTHONPATH=. python3 -m unittest discover -s tests -p "test_*.py"
+```
+
+## Core idea
+
+For lookahead distance `Ld` and heading error `α`:
+
+`κ = 2 sin(α) / Ld`  
+`δ = arctan(L · κ)` where `L` is wheelbase.
 
 ## License
 
-MIT License. See `LICENSE`.
+MIT
